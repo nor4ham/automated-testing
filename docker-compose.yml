@@ -1,0 +1,15 @@
+
+services:
+  android:
+    image: budtmo/docker-android:emulator_14.0
+    privileged: true
+    ports:
+      - "5554:5554"
+      - "4723:4723"
+
+  app:
+    image: mcr.microsoft.com/devcontainers/python:3.8
+    volumes:
+      - .:/workspace:cached    # <-- mount your project root
+    working_dir: /workspace
+    command: sleep infinity

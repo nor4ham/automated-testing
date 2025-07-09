@@ -1,0 +1,29 @@
+{
+  "name": "Automated Testing Dev Container",
+  "dockerComposeFile":  ["../docker-compose.yml"],  // now points one level up
+  "service": "app",                                  // the container where you run code
+  "workspaceFolder": "/workspace",
+  "runServices": ["android"],                        // <<< add this
+  "shutdownAction": "stopCompose",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/nordcominc/devcontainer-features/android-sdk:1": {},
+    "ghcr.io/devcontainers/features/python": { "version": "3.12" }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.pythonPath": "/usr/local/bin/python"
+      }
+    },
+    "extensions": [
+      "ms-python.python",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+    ]
+  },
+
+  "forwardPorts": [4723],
+  "postCreateCommand": "pip install -r requirements.txt"
+}
