@@ -10,21 +10,26 @@
    ```
 
 4. Generate Allure report:
-pytest --alluredir=Reports/allure-report
+   ```bash
+   pytest --alluredir=Reports/allure-report
+   ```
 allure serve Reports/allure-report
 
-5. Generate Pytest HTML report:
-pytest --html=Reports/pytest-report.html
-
+6. Generate Pytest HTML report:
+   ```bash
+   pytest --html=Reports/pytest-report.html
+   ```
 # Project Structure
+```bash
 .github/workflows/ci.yml       # CI/CD config
 .devcontainer/                 # Dev Container config files
 web_testing/                   # Selenium and API tests
 mobile_testing/                # Appium mobile tests (iOS/Android)
 Reports/                       # Test reports
 README.md                      # Documentation
-
+```
 
 ### Clean up old pycache files
+```bash
 find . -type d -name "__pycache__" -exec rm -rf {} +
-cle
+```
